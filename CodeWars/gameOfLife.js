@@ -1,9 +1,18 @@
 //TODO Need to add a perimeter check around existing cells
 
 const getGeneration = (cells, generations) => {
-  //creating a shallow copy of cells to mutate
   if (cells.filter((cell) => cell.includes(1)).length === 0) return [[]];
-
+  
+  // modify cells matrix to have an exterior 
+  cells = cells.map((cell) => {
+    cell.push(0);
+    cell.unshift(0);
+    return [...cell];
+  })
+  cells.push(new Array(cells[0].length).fill(0))
+  cells.unshift(new Array(cells[0].length).fill(0))
+  
+  //creating a shallow copy of cells to mutate
   const output = cells.map((cell) => [...cell]);
 
   //looping for number of generations
@@ -41,7 +50,9 @@ const getGeneration = (cells, generations) => {
         }
       }
     }
+    cells = output.map((cell) => [...cell])
   }
+  //TODO Need to loop over matrix and remove extra 0's on exterior
 
   return output;
 };
@@ -63,6 +74,6 @@ console.log(
       [0, 1, 1],
       [1, 1, 0],
     ],
-    1
+    2
   )
 );
