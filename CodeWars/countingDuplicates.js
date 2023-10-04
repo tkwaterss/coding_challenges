@@ -1,21 +1,16 @@
 const duplicateCount = (string) => {
-  //count will increase for every set of multiple chars
   let count = 0;
+  let chars = {};
   string = string.toLowerCase().split('');
-  while (string.length > 0) {
-    console.log('looping')
-    if (string.lastIndexOf(string[0] > 0)) {
-      count ++;
-      while (string.lastIndexOf(string[0]) > 0) {
-        console.log('loop')
-        string.splice(string.lastIndexOf(string[0]), 1)
-      }
-      string.shift();
-    } else {
-      string.shift();
-      console.log('removing')
+
+  string.forEach((char, index) => !chars[string[index]] ? chars[string[index]] = 1 : chars[string[index]]++)
+
+  for (let key in chars) {
+    if (chars[key] > 1) {
+      count++;
     }
   }
+
   return count;
 }
 
