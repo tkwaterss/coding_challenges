@@ -1,7 +1,5 @@
 const stray = numbers => {
-  for (let i = 1; i < numbers.length; i++) {
-    if (numbers.lastIndexOf(numbers[i]) === i) {
-      return numbers[i]
-    }
-  }
+  let first = numbers.filter(num => num !== numbers[0])
+  let second = numbers.filter(num => num === numbers[0])
+  return first.length === 1 ? first[0] : second[0]
 }
