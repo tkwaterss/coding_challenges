@@ -35,8 +35,9 @@ const decrypt = (encryptedText, n) => {
   }
   return text.join('');
 }
-console.log(encrypt('012345', 2))
-console.log(encrypt('0123456', 1))
-
-console.log(decrypt('135024', 2))
-console.log(decrypt('1350246', 1))
+console.log(encrypt("", 0))
+console.log(encrypt(null, 0))
+console.log(encrypt("This is a test!", 2))
+console.log(encrypt("This is a test!", 3))
+console.log(encrypt("This is a test!", 4))
+console.log(encrypt("This kata is very interesting!", 1))
