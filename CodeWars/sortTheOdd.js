@@ -1,11 +1,20 @@
 const sortArray = (array) => {
-  let odds = {}
+  let odds = []
+  let index = []
   for (let i = 0; i < array.length; i++) {
     if (array[i] % 2 !== 0) {
-      odds[array[i]] = i;
+      odds.push(array[i]);
+      index.push(i);
     }
   }
-  return odds
+  odds.sort((a, b) => a - b);
+  index.sort((a, b) => a - b);
+
+  for (let i = 0; i < odds.length; i++) {
+    array.splice(index[i], 1, odds[i])
+  }
+  console.log(odds, index)
+  return array;
 };
 
 console.log(sortArray([7, 1]));
