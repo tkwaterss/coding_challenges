@@ -8,4 +8,4 @@ const interestCalc = (years, amount, rate) => {
   return `Total w/ interest: ${total}, total w/o interest: ${years * 12 * amount}`
 }
 
-console.log(interestCalc(20, 2000, 0.07))
+console.log(interestCalc(3, 3000, 0.07))
